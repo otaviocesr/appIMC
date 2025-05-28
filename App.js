@@ -53,9 +53,9 @@ export default function App() {
           <View style={styles.modalContainer}>
 
             {/* Imprimir o IMC calculado */}
-            <Text>Seu IMC é: {calcularIMC()}</Text>
+            <Text>Seu IMC é: <Text style={{ fontStyle: 'italic', color: 'cornflowerblue' }}>{calcularIMC()}</Text></Text>
             {/* Imprimir a classificação de peso */}
-            <Text>Sua classificação é: {TabelaDePeso(calcularIMC)}</Text>
+            <Text>Sua classificação é: <Text style={{ fontStyle: 'italic', color: 'cornflowerblue' }}>{TabelaDePeso(calcularIMC)}</Text></Text>
 
             <Button title='Fechar' onPress={() => setModalVisible(!modalVisible)} />
           </View>
