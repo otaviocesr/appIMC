@@ -9,11 +9,13 @@ export default function App() {
   const [altura, setAltura] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
 
+  // Função para o cálculo do IMC (peso / altura²)
   function calcularIMC() {
     const IMC = peso / (altura * altura);
     return IMC;
   }
 
+  // Função criada para atribuir uma classificação referente ao valor do IMC calculado
   function TabelaDePeso(calcularIMC) {
     if (calcularIMC() < 18.6) {
       return <Text>Baixo Peso</Text>
@@ -26,11 +28,7 @@ export default function App() {
     } else {
       return <Text>Obesidade Extrema</Text>
     }
-
-
   }
-
-
 
   return (
     <View style={styles.container}>
@@ -47,7 +45,6 @@ export default function App() {
         onChangeText={(valueA) => setAltura(valueA)}
         style={{ width: '80%', borderBottomWidth: 1, borderColor: '#000' }}
       />
-      {/* {peso ? <Text style={{ color: '#000' }}>Olá, seja bem-vindo!</Text> : null} */}
 
       <Button title='Ver IMC' onPress={() => setModalVisible(!modalVisible)} />
 
@@ -55,9 +52,10 @@ export default function App() {
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>
 
+            {/* Imprimir o IMC calculado */}
             <Text>Seu IMC é: {calcularIMC()}</Text>
+            {/* Imprimir a classificação de peso */}
             <Text>Sua classificação é: {TabelaDePeso(calcularIMC)}</Text>
-
 
             <Button title='Fechar' onPress={() => setModalVisible(!modalVisible)} />
           </View>
